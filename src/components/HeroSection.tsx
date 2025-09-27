@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, ChevronDown } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,10 +20,9 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 particle-bg"
         style={{
-          backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.8)), url(${heroBackground})`,
+          background: 'radial-gradient(ellipse at bottom, hsl(218 27% 8%) 0%, hsl(220 25% 10%) 50%, hsl(348 91% 58% / 0.1) 100%)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundPosition: 'center'
         }}
       />
       
