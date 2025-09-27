@@ -83,10 +83,25 @@ const SkillsSection = () => {
               
               {/* Category Header */}
               <div className="flex items-center mb-6">
-                <div className={`p-3 rounded-full bg-${category.color}/10 border border-${category.color}/20 mr-4`}>
-                  <category.icon className={`h-6 w-6 text-${category.color}`} />
+                <div className={`p-3 rounded-full border mr-4 ${
+                  category.color === 'primary' ? 'bg-primary/10 border-primary/20' :
+                  category.color === 'secondary' ? 'bg-secondary/10 border-secondary/20' :
+                  category.color === 'marvel-blue' ? 'bg-marvel-blue/10 border-marvel-blue/20' :
+                  'bg-energy-pulse/10 border-energy-pulse/20'
+                }`}>
+                  <category.icon className={`h-6 w-6 ${
+                    category.color === 'primary' ? 'text-primary' :
+                    category.color === 'secondary' ? 'text-secondary' :
+                    category.color === 'marvel-blue' ? 'text-marvel-blue' :
+                    'text-energy-pulse'
+                  }`} />
                 </div>
-                <h3 className={`font-hero text-xl font-bold text-${category.color}`}>
+                <h3 className={`font-hero text-xl font-bold ${
+                  category.color === 'primary' ? 'text-primary' :
+                  category.color === 'secondary' ? 'text-secondary' :
+                  category.color === 'marvel-blue' ? 'text-marvel-blue' :
+                  'text-energy-pulse'
+                }`}>
                   {category.title}
                 </h3>
               </div>
@@ -99,10 +114,20 @@ const SkillsSection = () => {
                     {/* Skill Name and Percentage */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <skill.icon className={`h-4 w-4 text-${category.color} mr-2`} />
+                        <skill.icon className={`h-4 w-4 mr-2 ${
+                          category.color === 'primary' ? 'text-primary' :
+                          category.color === 'secondary' ? 'text-secondary' :
+                          category.color === 'marvel-blue' ? 'text-marvel-blue' :
+                          'text-energy-pulse'
+                        }`} />
                         <span className="font-medium text-foreground">{skill.name}</span>
                       </div>
-                      <span className={`text-sm font-bold text-${category.color}`}>
+                      <span className={`text-sm font-bold ${
+                        category.color === 'primary' ? 'text-primary' :
+                        category.color === 'secondary' ? 'text-secondary' :
+                        category.color === 'marvel-blue' ? 'text-marvel-blue' :
+                        'text-energy-pulse'
+                      }`}>
                         {skill.level}%
                       </span>
                     </div>
@@ -110,10 +135,18 @@ const SkillsSection = () => {
                     {/* Progress Bar */}
                     <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                       <div 
-                        className={`h-full bg-${category.color} rounded-full transition-all duration-1000 ease-out relative`}
+                        className={`h-full rounded-full transition-all duration-1000 ease-out relative ${
+                          category.color === 'primary' ? 'bg-primary' :
+                          category.color === 'secondary' ? 'bg-secondary' :
+                          category.color === 'marvel-blue' ? 'bg-marvel-blue' :
+                          'bg-energy-pulse'
+                        }`}
                         style={{ 
                           width: `${skill.level}%`,
-                          boxShadow: `0 0 10px hsl(var(--${category.color}) / 0.5)`
+                          boxShadow: category.color === 'primary' ? '0 0 10px hsl(var(--primary) / 0.5)' :
+                                   category.color === 'secondary' ? '0 0 10px hsl(var(--secondary) / 0.5)' :
+                                   category.color === 'marvel-blue' ? '0 0 10px hsl(var(--marvel-blue) / 0.5)' :
+                                   '0 0 10px hsl(var(--energy-pulse) / 0.5)'
                         }}
                       >
                         {/* Shimmer effect */}
@@ -125,7 +158,12 @@ const SkillsSection = () => {
               </div>
 
               {/* Category decoration */}
-              <div className={`absolute -top-1 -right-1 w-6 h-6 bg-${category.color}/20 rounded-full blur-sm`} />
+              <div className={`absolute -top-1 -right-1 w-6 h-6 rounded-full blur-sm ${
+                category.color === 'primary' ? 'bg-primary/20' :
+                category.color === 'secondary' ? 'bg-secondary/20' :
+                category.color === 'marvel-blue' ? 'bg-marvel-blue/20' :
+                'bg-energy-pulse/20'
+              }`} />
             </div>
           ))}
         </div>

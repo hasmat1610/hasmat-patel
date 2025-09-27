@@ -68,8 +68,18 @@ const ProjectsSection = () => {
               <div className="flex items-start justify-between mb-6">
                 <div className="flex-1">
                   <div className="flex items-center mb-2">
-                    <div className={`w-3 h-3 bg-${project.color} rounded-full mr-3 animate-pulse-glow`} />
-                    <span className={`text-sm font-medium text-${project.color}`}>
+                    <div className={`w-3 h-3 rounded-full mr-3 animate-pulse-glow ${
+                      project.color === 'primary' ? 'bg-primary' :
+                      project.color === 'secondary' ? 'bg-secondary' :
+                      project.color === 'marvel-blue' ? 'bg-marvel-blue' :
+                      'bg-energy-pulse'
+                    }`} />
+                    <span className={`text-sm font-medium ${
+                      project.color === 'primary' ? 'text-primary' :
+                      project.color === 'secondary' ? 'text-secondary' :
+                      project.color === 'marvel-blue' ? 'text-marvel-blue' :
+                      'text-energy-pulse'
+                    }`}>
                       {project.category}
                     </span>
                     <span className="text-muted-foreground text-sm ml-2">• {project.year}</span>
@@ -117,7 +127,12 @@ const ProjectsSection = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className={`px-3 py-1 text-xs font-medium rounded-full bg-${project.color}/10 text-${project.color} border border-${project.color}/20`}
+                      className={`px-3 py-1 text-xs font-medium rounded-full border ${
+                        project.color === 'primary' ? 'bg-primary/10 text-primary border-primary/20' :
+                        project.color === 'secondary' ? 'bg-secondary/10 text-secondary border-secondary/20' :
+                        project.color === 'marvel-blue' ? 'bg-marvel-blue/10 text-marvel-blue border-marvel-blue/20' :
+                        'bg-energy-pulse/10 text-energy-pulse border-energy-pulse/20'
+                      }`}
                     >
                       {tech}
                     </span>
@@ -141,14 +156,24 @@ const ProjectsSection = () => {
                 <Button 
                   variant="ghost" 
                   size="sm" 
-                  className={`text-${project.color} hover:text-${project.color} hover:bg-${project.color}/10`}
+                  className={`hover:bg-opacity-10 ${
+                    project.color === 'primary' ? 'text-primary hover:text-primary hover:bg-primary/10' :
+                    project.color === 'secondary' ? 'text-secondary hover:text-secondary hover:bg-secondary/10' :
+                    project.color === 'marvel-blue' ? 'text-marvel-blue hover:text-marvel-blue hover:bg-marvel-blue/10' :
+                    'text-energy-pulse hover:text-energy-pulse hover:bg-energy-pulse/10'
+                  }`}
                 >
                   View Details →
                 </Button>
               </div>
 
               {/* Corner decoration */}
-              <div className={`absolute -top-2 -left-2 w-8 h-8 bg-${project.color}/20 rounded-full blur-sm group-hover:bg-${project.color}/30 transition-colors`} />
+              <div className={`absolute -top-2 -left-2 w-8 h-8 rounded-full blur-sm transition-colors group-hover:opacity-30 ${
+                project.color === 'primary' ? 'bg-primary/20 group-hover:bg-primary/30' :
+                project.color === 'secondary' ? 'bg-secondary/20 group-hover:bg-secondary/30' :
+                project.color === 'marvel-blue' ? 'bg-marvel-blue/20 group-hover:bg-marvel-blue/30' :
+                'bg-energy-pulse/20 group-hover:bg-energy-pulse/30'
+              }`} />
             </div>
           ))}
         </div>

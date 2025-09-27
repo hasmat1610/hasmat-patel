@@ -56,7 +56,11 @@ const ExperienceSection = () => {
               
               {/* Timeline Node */}
               <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-8 hidden md:block">
-                <div className={`w-6 h-6 bg-${exp.color} rounded-full border-4 border-background shadow-glow animate-pulse-glow`} />
+                <div className={`w-6 h-6 rounded-full border-4 border-background shadow-glow animate-pulse-glow ${
+                  exp.color === 'primary' ? 'bg-primary' :
+                  exp.color === 'secondary' ? 'bg-secondary' :
+                  'bg-marvel-blue'
+                }`} />
               </div>
 
               {/* Content Card */}
@@ -67,7 +71,11 @@ const ExperienceSection = () => {
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between mb-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className={`font-hero text-xl font-bold mb-1 text-${exp.color}`}>
+                    <h3 className={`font-hero text-xl font-bold mb-1 ${
+                      exp.color === 'primary' ? 'text-primary' :
+                      exp.color === 'secondary' ? 'text-secondary' :
+                      'text-marvel-blue'
+                    }`}>
                       {exp.title}
                     </h3>
                     <h4 className="text-lg font-semibold text-foreground mb-2">
@@ -97,7 +105,11 @@ const ExperienceSection = () => {
                   {exp.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className={`px-3 py-1 text-xs font-medium rounded-full bg-${exp.color}/10 text-${exp.color} border border-${exp.color}/20`}
+                      className={`px-3 py-1 text-xs font-medium rounded-full border ${
+                        exp.color === 'primary' ? 'bg-primary/10 text-primary border-primary/20' :
+                        exp.color === 'secondary' ? 'bg-secondary/10 text-secondary border-secondary/20' :
+                        'bg-marvel-blue/10 text-marvel-blue border-marvel-blue/20'
+                      }`}
                     >
                       {tech}
                     </span>
@@ -105,7 +117,11 @@ const ExperienceSection = () => {
                 </div>
 
                 {/* Comic-style corner decoration */}
-                <div className={`absolute -top-2 -right-2 w-8 h-8 bg-${exp.color} opacity-20 rounded-full blur-sm`} />
+                <div className={`absolute -top-2 -right-2 w-8 h-8 opacity-20 rounded-full blur-sm ${
+                  exp.color === 'primary' ? 'bg-primary' :
+                  exp.color === 'secondary' ? 'bg-secondary' :
+                  'bg-marvel-blue'
+                }`} />
               </div>
             </div>
           ))}
