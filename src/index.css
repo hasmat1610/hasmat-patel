@@ -1,42 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Marvel-inspired Professional Portfolio Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Marvel Dark Theme */
+    --background: 218 27% 8%;           /* Deep space navy */
+    --foreground: 210 40% 98%;          /* Crisp white */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 25% 10%;                /* Dark card background */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Marvel Hero Colors */
+    --primary: 348 91% 58%;             /* Marvel Red */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 100% 50%;           /* Marvel Gold */
+    --secondary-foreground: 220 25% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --marvel-blue: 221 83% 53%;         /* Marvel Blue */
+    --marvel-blue-foreground: 210 40% 98%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 15% 65%;
 
-    --destructive: 0 84.2% 60.2%;
+    --accent: 45 100% 50%;              /* Gold accent */
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 20% 20%;
+    --input: 220 20% 15%;
+    --ring: 348 91% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Marvel-specific design tokens */
+    --hero-glow: 348 91% 58%;           /* Red glow */
+    --gold-glow: 45 100% 50%;           /* Gold glow */
+    --blue-glow: 221 83% 53%;           /* Blue glow */
+    --energy-pulse: 160 100% 50%;       /* Arc reactor green */
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(218 27% 8%), hsl(220 25% 10%), hsl(348 91% 58% / 0.1));
+    --gradient-marvel: linear-gradient(45deg, hsl(348 91% 58%), hsl(45 100% 50%), hsl(221 83% 53%));
+    --gradient-card: linear-gradient(135deg, hsl(220 25% 10% / 0.8), hsl(220 25% 15% / 0.9));
+    
+    /* Shadows */
+    --shadow-hero: 0 25px 50px -12px hsl(348 91% 58% / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--hero-glow) / 0.4);
+    --shadow-card: 0 8px 32px hsl(220 25% 5% / 0.4);
+    
+    /* Animation variables */
+    --transition-marvel: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-timing: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,107 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Marvel-inspired animations */
+  .hero-text-glow {
+    text-shadow: 0 0 20px hsl(var(--hero-glow) / 0.6), 
+                 0 0 40px hsl(var(--hero-glow) / 0.4);
+  }
+
+  .energy-glow {
+    box-shadow: 0 0 20px hsl(var(--energy-pulse) / 0.6),
+                0 0 40px hsl(var(--energy-pulse) / 0.4),
+                inset 0 0 20px hsl(var(--energy-pulse) / 0.1);
+  }
+
+  .marvel-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: var(--shadow-card);
+  }
+
+  .particle-bg {
+    background: var(--gradient-hero);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .skill-icon {
+    transition: var(--transition-marvel);
+    filter: drop-shadow(0 4px 8px hsl(var(--hero-glow) / 0.3));
+  }
+
+  .skill-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 8px 16px hsl(var(--hero-glow) / 0.5));
+  }
+
+  .timeline-line {
+    background: linear-gradient(to bottom, 
+      hsl(var(--primary)), 
+      hsl(var(--secondary)), 
+      hsl(var(--marvel-blue)));
+  }
+
+  /* Animation keyframes */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--energy-pulse) / 0.4);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--energy-pulse) / 0.8);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes marvel-entrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Utility classes */
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-marvel-entrance {
+    animation: marvel-entrance 0.8s var(--bounce-timing) both;
+  }
+
+  .text-gradient-marvel {
+    background: var(--gradient-marvel);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

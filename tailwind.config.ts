@@ -47,16 +47,34 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        // Marvel-specific colors
+        "marvel-blue": {
+          DEFAULT: "hsl(var(--marvel-blue))",
+          foreground: "hsl(var(--marvel-blue-foreground))",
         },
+        "hero-glow": "hsl(var(--hero-glow))",
+        "gold-glow": "hsl(var(--gold-glow))",
+        "blue-glow": "hsl(var(--blue-glow))",
+        "energy-pulse": "hsl(var(--energy-pulse))",
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['Orbitron', 'monospace'],
+        hero: ['Orbitron', 'monospace'],
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-marvel': 'var(--gradient-marvel)',
+        'gradient-card': 'var(--gradient-card)',
+      },
+      boxShadow: {
+        'hero': 'var(--shadow-hero)',
+        'glow': 'var(--shadow-glow)',
+        'card': 'var(--shadow-card)',
+      },
+      transitionTimingFunction: {
+        'marvel': 'var(--transition-marvel)',
+        'bounce-marvel': 'var(--bounce-timing)',
       },
       borderRadius: {
         lg: "var(--radius)",
