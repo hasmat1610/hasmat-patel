@@ -13,21 +13,6 @@ const Index = () => {
     <main className="min-h-screen bg-background text-foreground">
       {/* SEO Meta Tags (handled in index.html) */}
       
-      {/* Dark Mode Toggle */}
-      <div className="fixed top-6 right-6 z-50">
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="p-3 rounded-full bg-card border border-border hover:bg-muted transition-colors duration-300 shadow-card"
-          aria-label="Toggle dark mode"
-        >
-          {darkMode ? (
-            <div className="w-6 h-6 bg-secondary rounded-full animate-pulse-glow" />
-          ) : (
-            <div className="w-6 h-6 bg-primary rounded-full animate-pulse-glow" />
-          )}
-        </button>
-      </div>
-
       {/* Main Sections */}
       <HeroSection />
       <AboutSection />
