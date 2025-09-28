@@ -5,14 +5,15 @@ export default {
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   safelist: [
-    // Fintech color classes
-    'text-primary', 'text-secondary', 'text-fintech-blue',
-    'bg-primary', 'bg-secondary', 'bg-fintech-blue',
-    'bg-primary/10', 'bg-secondary/10', 'bg-fintech-blue/10',
-    'bg-primary/20', 'bg-secondary/20', 'bg-fintech-blue/20',
-    'border-primary/20', 'border-secondary/20', 'border-fintech-blue/20',
-    'hover:bg-primary/10', 'hover:bg-secondary/10', 'hover:bg-fintech-blue/10',
-    'hover:text-primary', 'hover:text-secondary', 'hover:text-fintech-blue',
+    // Marvel color classes
+    'text-primary', 'text-secondary', 'text-marvel-blue', 'text-energy-pulse',
+    'bg-primary', 'bg-secondary', 'bg-marvel-blue', 'bg-energy-pulse',
+    'bg-primary/10', 'bg-secondary/10', 'bg-marvel-blue/10', 'bg-energy-pulse/10',
+    'bg-primary/20', 'bg-secondary/20', 'bg-marvel-blue/20', 'bg-energy-pulse/20',
+    'bg-primary/30', 'bg-secondary/30', 'bg-marvel-blue/30', 'bg-energy-pulse/30',
+    'border-primary/20', 'border-secondary/20', 'border-marvel-blue/20', 'border-energy-pulse/20',
+    'hover:bg-primary/10', 'hover:bg-secondary/10', 'hover:bg-marvel-blue/10', 'hover:bg-energy-pulse/10',
+    'hover:text-primary', 'hover:text-secondary', 'hover:text-marvel-blue', 'hover:text-energy-pulse',
   ],
   theme: {
     container: {
@@ -57,28 +58,34 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Fintech-specific colors
-        "fintech-blue": {
-          DEFAULT: "hsl(var(--fintech-blue))",
-          foreground: "hsl(var(--fintech-blue-foreground))",
+        // Marvel-specific colors
+        "marvel-blue": {
+          DEFAULT: "hsl(var(--marvel-blue))",
+          foreground: "hsl(var(--marvel-blue-foreground))",
         },
-        "primary-glow": "hsl(var(--primary-glow))",
+        "hero-glow": "hsl(var(--hero-glow))",
+        "gold-glow": "hsl(var(--gold-glow))",
+        "blue-glow": "hsl(var(--blue-glow))",
+        "energy-pulse": "hsl(var(--energy-pulse))",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['Orbitron', 'monospace'],
+        hero: ['Orbitron', 'monospace'],
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
-        'gradient-fintech': 'var(--gradient-fintech)',
+        'gradient-marvel': 'var(--gradient-marvel)',
         'gradient-card': 'var(--gradient-card)',
       },
       boxShadow: {
-        'elegant': 'var(--shadow-elegant)',
-        'soft': 'var(--shadow-soft)',
+        'hero': 'var(--shadow-hero)',
+        'glow': 'var(--shadow-glow)',
+        'card': 'var(--shadow-card)',
       },
       transitionTimingFunction: {
-        'smooth': 'var(--transition-smooth)',
+        'marvel': 'var(--transition-marvel)',
+        'bounce-marvel': 'var(--bounce-timing)',
       },
       borderRadius: {
         lg: "var(--radius)",
